@@ -159,7 +159,7 @@ List* get_adj_nodes(Node* n){
               if(is_valid(newNodo))
               {
                 pushBack(list, newNodo); //si es valido, lo agrego y me salgo
-                return list;
+                //return list;
               }
               else free(newNodo); // si no, libero la copia y vuelvo a ver otro numero
             }
