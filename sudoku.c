@@ -171,6 +171,7 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  //Almacene en la variable cont, la cantidad de iteraciones que realiza el algoritmo.
   //1. Cree un stack S (pila) e inserte el nodo.
   Stack *S = createStack();
   push(S, initial);
@@ -178,6 +179,7 @@ Node* DFS(Node* initial, int* cont){
   //2. Mientras el stack S no se encuentre vacío:
   while(top(S) != 0) //no tengo size, asique supongo que devo ocupar top()
   {
+    (*cont)++;
     //a) Saque y elimine el primer nodo de S.
     Node *nodo = top(S);
     pop(S);
