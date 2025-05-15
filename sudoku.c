@@ -157,7 +157,7 @@ List* get_adj_nodes(Node* n){
 todos los valores de la matriz son distintos a 0) y 0 en caso contrario.*/
 int is_final(Node* n){
   //voy a probar algo simple primero
-  /*for(int i = 0 ; i < 9 ; i++)
+  for(int i = 0 ; i < 9 ; i++)
   {
     for(int k = 0 ; k < 9 , k++)
     {
@@ -166,8 +166,8 @@ int is_final(Node* n){
       }
     }
   }
-  return 1;*/
   return 1;
+ 
 }
 
 Node* DFS(Node* initial, int* cont){

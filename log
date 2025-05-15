@@ -160,3 +160,21 @@ Thu, May 15, 2025 12:30:02 PM:
  tests:  6|2
 total_score: 45/70
 92c4ce1
+Thu, May 15, 2025 12:30:28 PM: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+sudoku.c: In function 'is_final':
+sudoku.c:162:27: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  162 |     for(int k = 0 ; k < 9 , k++)
+      |                           ^
+sudoku.c:162:32: error: expected ';' before ')' token
+  162 |     for(int k = 0 ; k < 9 , k++)
+      |                                ^
+      |                                ;
+test.c: At top level:
+test.c:7:8: warning: '_strdup' redeclared without dllimport attribute: previous dllimport ignored [-Wattributes]
+    7 | char * _strdup(const char * str) {
+      |        ^~~~~~~
+8314e98
