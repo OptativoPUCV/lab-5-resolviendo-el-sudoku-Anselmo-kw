@@ -45,8 +45,8 @@ void print_node(Node* n){
 
 int is_valid(Node* n){ 
   /*- No se repitan números en las filas
-- No se repitan números en las columnas
-- No se repitan números en las submatrices de 3x3*/
+  - No se repitan números en las columnas
+  - No se repitan números en las submatrices de 3x3*/
 
   //No se repitan números en las filas
   for(int i = 0 ; i < 9 ; i++)
@@ -64,7 +64,7 @@ int is_valid(Node* n){
   }
 
   //No se repitan números en las columnas
-  for(int i = 0 ; i < 9 ; i++)
+  for(int i = 0 ; i < 9 ; i++) //es lo mismo que lo de arriba pero al revez
   { 
     int numeros[10] = {0};
     for(int k = 0 ; k < 9 ; k++)
@@ -79,7 +79,7 @@ int is_valid(Node* n){
   }
 
   //No se repitan números en las submatrices de 3x3
-  /***int i_inico; int k_inicio; esto esta mal
+  /***int i_inico; int k_inicio; esto esta mal u_u
   int i_final; int k_final;
   
   for(i_inico = 0, i_final = 3 ; i_inico < i_final ; i_inico += 3, i_final += 3)
@@ -96,7 +96,7 @@ int is_valid(Node* n){
     }
   } ***/
 
-  int i_inicio, k_inicio;
+  int i_inicio, k_inicio; 
 
   for (i_inicio = 0; i_inicio < 9; i_inicio += 3) 
   {
@@ -152,12 +152,18 @@ List* get_adj_nodes(Node* n){
          if(n->sudo[i][k] == 0) //posicion vacía
          {
             //Ahora para la casilla vacia creamos los 9 nodos 
-            for(int nodo = 1 ; nodo < 9 ; nodo++) //parte desde 1, no 0 xd
+            for(int num = 1 ; num < 9 ; num++) //parte desde 1, no 0 xd
             {
-              Node* new = copy(n); //copiamos el nuevo nodo
-              new->sudo[i][k] = nodo; //y al nuevo nodo, le asignamos el numero correspondiente
-              pushBack(list, new); //y solo agregamos
+              Node* newNodo = copy(n); //copiamos el nuevo nodo
+              newNodo->sudo[i][k] = num; //y al nuevo nodo, le asignamos el numero correspondiente
+              if(is_valid(newNodo))
+              {
+                pushBack(list, newNodo);
+                return list;
+              }
+              free(newNodo);
             }
+            
         }
       }
     }
