@@ -152,13 +152,12 @@ List* get_adj_nodes(Node* n){
          if(n->sudo[i][k] == 0) //posicion vacía
          {
             //Ahora para la casilla vacia creamos los 9 nodos 
-            for(int nodo = 0 ; nodo < 9 ; nodo++)
+            for(int nodo = 1 ; nodo < 9 ; nodo++) //parte desde 1, no 0 xd
             {
               Node* new = copy(n); //copiamos el nuevo nodo
               new->sudo[i][k] = nodo; //y al nuevo nodo, le asignamos el numero correspondiente
               pushBack(list, new); //y solo agregamos
             }
-          return list;
         }
       }
     }
