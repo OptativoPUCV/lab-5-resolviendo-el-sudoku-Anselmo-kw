@@ -79,7 +79,7 @@ int is_valid(Node* n){
   }
 
   //No se repitan números en las submatrices de 3x3
-  int i_inico; int k_inicio;
+  /*int i_inico; int k_inicio;
   int i_final; int k_final;
   
   for(i_inico = 0, i_final = 3 ; i_inico < i_final ; i_inico += 3, i_final += 3)
@@ -94,7 +94,34 @@ int is_valid(Node* n){
         numeros[actual] = 1;
       }
     }
+  }*/
+  int i_inicio = 0;
+
+  while (i_inicio < 9) 
+  {
+    int k_inicio = 0;
+
+    while (k_inicio < 9) 
+    {
+        int numeros[10] = {0};
+
+        for (int i = i_inicio; i < i_inicio + 3; ++i) 
+        {
+            for (int k = k_inicio; k < k_inicio + 3; ++k) 
+            {
+                int actual = n->sudo[i][k];
+                if (actual != 0) {
+                    if (numeros[actual]) return 0;
+                    numeros[actual] = 1;
+                }
+            }
+        }
+        k_inicio += 3;
+    }
+
+    i_inicio += 3;
   }
+
 
     return 1;
 }
