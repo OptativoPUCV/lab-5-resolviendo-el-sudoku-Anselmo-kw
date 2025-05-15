@@ -145,12 +145,12 @@ List* get_adj_nodes(Node* n){
               }
               else free(newNodo); // si no, libero la copia y vuelvo a ver otro numero
             }
-          return list;
+          return list; //SOLO, devo generar nodos validos para la primera celda vacía que encuentre
         }
       }
     }
 
-    return list; //una vez recorrido cada espacio del sudoku se retorna la lista
+    return list; //este es en caso de que no tenga nodos adyacentes se retorne la lista vacia
 }
 
 
