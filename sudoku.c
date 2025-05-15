@@ -78,7 +78,24 @@ int is_valid(Node* n){
     }
   }
 
+  //No se repitan números en las submatrices de 3x3
+  int i_inico; int k_inicio;
+  int i_final; int k_final;
   
+  for(i_inico = 0, i_final = 3 ; i_inico < i_final ; i_inico += 3, i_final += 3)
+  {
+    for(k_inicio = 0, k_final = 3; k_inicio < k_final ; k_inicio += 3, k_final += 3)
+    {
+      int numeros[10] = {0};
+      if(n->sudo[i_inico][k_inicio] != 0)
+      {
+        int actual = n->sudo[i_inico][k_inicio];
+        if(numeros[actual]) return 0; 
+        numeros[actual] = 1;
+      }
+    }
+  }
+
     return 1;
 }
 
