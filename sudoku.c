@@ -49,7 +49,7 @@ int is_valid(Node* n){
 - No se repitan números en las submatrices de 3x3*/
 
   //No se repitan números en las filas
-  /*for(int i = 0 ; i < 9 ; i++)
+  for(int i = 0 ; i < 9 ; i++)
   { 
     int numeros[10] = {0};
     for(int k = 0 ; k < 9 ; k++)
@@ -94,7 +94,7 @@ int is_valid(Node* n){
         numeros[actual] = 1;
       }
     }
-  } ***
+  } ***/
 
   int i_inicio, k_inicio;
 
@@ -117,7 +117,7 @@ int is_valid(Node* n){
           }
       }
   }
-  */
+  
 
     return 1;
 }
