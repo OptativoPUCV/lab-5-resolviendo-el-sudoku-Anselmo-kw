@@ -158,10 +158,10 @@ List* get_adj_nodes(Node* n){
               newNodo->sudo[i][k] = num; //y al nuevo nodo, le asignamos el numero correspondiente
               if(is_valid(newNodo))
               {
-                pushBack(list, newNodo);
+                pushBack(list, newNodo); //si es valido, lo agrego y me salgo
                 return list;
               }
-              free(newNodo);
+              else free(newNodo); // si no, libero la copia y vuelvo a ver otro numero
             }
             
         }
