@@ -130,23 +130,6 @@ List* get_adj_nodes(Node* n){
     {
       for(int k = 0 ; k < 9 ; k++)//y columnas
       {
-        /*
-        if(n->sudo[i][k] == 0) //si está vacio, puedo ingresar dato
-        {
-          for(int j = 1 ; j <= 9 ; j++) //y aqui veo que numero agregar
-          {
-            Node* new = copy(n); //creo una copia
-            new->sudo[i][k] = j; //a la copia en la posicion [i][k] le asigno el valor j
-            if(is_valid(new)) //si es valido
-            {
-              pushBack(list, new); //lo agrego a la lista
-            }
-            else
-            {
-              free(new); //si no, libero la copia
-            }
-          }
-        }*/
          //no habia leido bien el README, no habia entendido que solo devo retornar nodos, 
          //pero sin usar el is_valid, tampoco me di cuenta que no taba completo hasta leer la 2 u_u
          if(n->sudo[i][k] == 0) //posicion vacía
@@ -158,12 +141,11 @@ List* get_adj_nodes(Node* n){
               newNodo->sudo[i][k] = num; //y al nuevo nodo, le asignamos el numero correspondiente
               if(is_valid(newNodo))
               {
-                pushBack(list, newNodo); //si es valido, lo agrego y me salgo
-                //return list;
+                pushBack(list, newNodo); //si es valido, lo agrego
               }
               else free(newNodo); // si no, libero la copia y vuelvo a ver otro numero
             }
-            
+          return list;
         }
       }
     }
