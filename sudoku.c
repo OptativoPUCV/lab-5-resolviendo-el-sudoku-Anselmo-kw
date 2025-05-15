@@ -60,8 +60,16 @@ int is_valid(Node* n){
         if(numeros[actual]) return 0; //si ya aparecio, significa que se repite
         numeros[actual] = 1; //si no, lo marcamos en para que en caso de aparecer retornar 0;
       }
+      if(n->sudo[k][i] != 0)
+      {
+        int actual = n->sudo[k][i];
+        if(numeros[actual]) return 0; //si ya aparecio, significa que se repite
+        numeros[actual] = 1; //si no, lo marcamos en para que en caso de aparecer retornar 0;
+      }
     }
   }
+
+
   
     return 1;
 }
