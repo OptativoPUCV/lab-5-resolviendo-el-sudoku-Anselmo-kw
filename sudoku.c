@@ -184,8 +184,21 @@ Node* DFS(Node* initial, int* cont){
 
     //b) Verifique si corresponde a un estado final, si es así retorne el nodo.
     if(is_final(nodo)) return nodo;
+
+    //c) Obtenga la lista de nodos adyacentes al nodo.
+    List *listaAdj = get_adj_nodes(nodo);
+
+    //d) Agregue los nodos de la lista (uno por uno) al stack S.
+    Node *aux = first(listaAdj);
+    while(aux != NULL)
+    {
+      push(S, aux);
+      aux = next(listaAdj);
+    }
+
+    //e) Libere la memoria usada por el nodo.
+    free(nodo);
     
-  
   }
 
   return NULL;
