@@ -60,6 +60,15 @@ int is_valid(Node* n){
         if(numeros[actual]) return 0; //si ya aparecio, significa que se repite
         numeros[actual] = 1; //si no, lo marcamos en para que en caso de aparecer retornar 0;
       }
+    }
+  }
+
+  //No se repitan números en las columnas
+  for(int i = 0 ; i < 9 ; i++)
+  { 
+    int numeros[10] = {0};
+    for(int k = 0 ; k < 9 ; k++)
+    {
       if(n->sudo[k][i] != 0)
       {
         int actual = n->sudo[k][i];
@@ -68,7 +77,6 @@ int is_valid(Node* n){
       }
     }
   }
-
 
   
     return 1;
