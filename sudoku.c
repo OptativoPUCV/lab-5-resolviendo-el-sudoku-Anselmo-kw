@@ -171,6 +171,23 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
+  //1. Cree un stack S (pila) e inserte el nodo.
+  Stack *S = createStack();
+  push(S, initial);
+
+  //2. Mientras el stack S no se encuentre vacío:
+  while(top(S) != 0) //no tengo size, asique supongo que devo ocupar top()
+  {
+    //a) Saque y elimine el primer nodo de S.
+    Node *nodo = top(S);
+    pop(S);
+
+    //b) Verifique si corresponde a un estado final, si es así retorne el nodo.
+    if(is_final(nodo)) return nodo;
+    
+  
+  }
+
   return NULL;
 }
 
