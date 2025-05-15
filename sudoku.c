@@ -43,7 +43,29 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
+int is_valid(Node* n){ 
+  /*- No se repitan números en las filas
+- No se repitan números en las columnas
+- No se repitan números en las submatrices de 3x3*/
+
+  //No se repitan números en las filas
+  for(int i = 0 ; i < 9 ; i++)
+  { 
+    int total = 0;
+    int cont = 0;
+    for(int k = 0 ; k < 9 ; k++)
+    {
+      if(n->sudo[i][k] != 0)
+      {
+        total += n->sudo[i][k];
+        cont ++;
+      }
+    }
+
+    if(total/cont != 0) return 0;
+  }
+  
+
 
     return 1;
 }
