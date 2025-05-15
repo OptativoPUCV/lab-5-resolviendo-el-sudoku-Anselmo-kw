@@ -153,9 +153,20 @@ List* get_adj_nodes(Node* n){
     return list; //este es en caso de que no tenga nodos adyacentes se retorne la lista vacia
 }
 
-
+/*Esta función retorna 1 si el nodo corresponde a un nodo final (es decir, 
+todos los valores de la matriz son distintos a 0) y 0 en caso contrario.*/
 int is_final(Node* n){
-    return 0;
+  //voy a probar algo simple primero
+  for(int i = 0 ; i < 9 ; i++)
+  {
+    for(int k = 0 ; k < 9 , k++)
+    {
+      if(n->sudo[i][k] == 0){
+        return 0;
+      }
+    }
+  }
+  return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
