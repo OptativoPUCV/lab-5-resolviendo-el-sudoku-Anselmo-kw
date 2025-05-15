@@ -95,31 +95,26 @@ int is_valid(Node* n){
       }
     }
   }*/
-  int i_inicio = 0;
+  int i_inicio, k_inicio;
 
-  while (i_inicio < 9) 
+  for (i_inicio = 0; i_inicio < 9; i_inicio += 3) 
   {
-    int k_inicio = 0;
+      for (k_inicio = 0; k_inicio < 9; k_inicio += 3) 
+      {
+          int numeros[10] = {0}; 
 
-    while (k_inicio < 9) 
-    {
-        int numeros[10] = {0};
-
-        for (int i = i_inicio; i < i_inicio + 3; ++i) 
-        {
-            for (int k = k_inicio; k < k_inicio + 3; ++k) 
-            {
-                int actual = n->sudo[i][k];
-                if (actual != 0) {
-                    if (numeros[actual]) return 0;
-                    numeros[actual] = 1;
-                }
-            }
-        }
-        k_inicio += 3;
-    }
-
-    i_inicio += 3;
+          for (int i = i_inicio; i < i_inicio + 3; ++i) 
+          {
+              for (int k = k_inicio; k < k_inicio + 3; ++k) 
+              {
+                  int actual = n->sudo[i][k];
+                  if (actual != 0) {
+                      if (numeros[actual]) return 0; // Duplicado
+                      numeros[actual] = 1;
+                  }
+              }
+          }
+      }
   }
 
 
