@@ -181,7 +181,7 @@ Node* DFS(Node* initial, int* cont){
   {
     (*cont)++;
     //a) Saque y elimine el primer nodo de S.
-    Node *nodo = top(S);
+    Node *nodo = (Node*)top(S);
     pop(S);
 
     //b) Verifique si corresponde a un estado final, si es así retorne el nodo.
