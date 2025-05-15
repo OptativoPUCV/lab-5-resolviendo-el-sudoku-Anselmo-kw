@@ -52,23 +52,23 @@ int is_valid(Node* n){
 List* get_adj_nodes(Node* n){
     List* list=createList();
 
-    for(int i = 0 ; i < 9 ; i++)
+    for(int i = 0 ; i < 9 ; i++) //recorro las filas
     {
-      for(int k = 0 ; k < 9 ; k++)
+      for(int k = 0 ; k < 9 ; k++)//y columnas
       {
-        if(n->sudo[i][k] == 0)
+        if(n->sudo[i][k] == 0) //si está vacio, puedo ingresar dato
         {
-          for(int j = 1 ; j <= 9 ; j++)
+          for(int j = 1 ; j <= 9 ; j++) //y aqui veo que numero agregar
           {
-            Node* new = copy(n);
-            new->sudo[i][k] = j;
-            if(is_valid(new))
+            Node* new = copy(n); //creo una copia
+            new->sudo[i][k] = j; //a la copia en la posicion [i][k] le asigno el valor j
+            if(is_valid(new)) //si es valido
             {
-              pushBack(list, new);
+              pushBack(list, new); //lo agrego a la lista
             }
             else
             {
-              free(new);
+              free(new); //si no, libero la copia
             }
           }
 
@@ -76,8 +76,7 @@ List* get_adj_nodes(Node* n){
       }
     }
 
-
-    return list;
+    return list; //una vez recorrido cada espacio del sudoku se retorna la lista
 }
 
 
