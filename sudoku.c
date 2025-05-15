@@ -158,7 +158,7 @@ List* get_adj_nodes(Node* n){
               new->sudo[i][k] = nodo; //y al nuevo nodo, le asignamos el numero correspondiente
               pushBack(list, new); //y solo agregamos
             }
-
+          return list;
         }
       }
     }
