@@ -49,7 +49,7 @@ int is_valid(Node* n){
 - No se repitan números en las submatrices de 3x3*/
 
   //No se repitan números en las filas
-  for(int i = 0 ; i < 9 ; i++)
+  /*for(int i = 0 ; i < 9 ; i++)
   { 
     int numeros[10] = {0};
     for(int k = 0 ; k < 9 ; k++)
@@ -79,7 +79,7 @@ int is_valid(Node* n){
   }
 
   //No se repitan números en las submatrices de 3x3
-  /*int i_inico; int k_inicio;
+  /***int i_inico; int k_inicio; esto esta mal
   int i_final; int k_final;
   
   for(i_inico = 0, i_final = 3 ; i_inico < i_final ; i_inico += 3, i_final += 3)
@@ -94,7 +94,8 @@ int is_valid(Node* n){
         numeros[actual] = 1;
       }
     }
-  }*/
+  } ***
+
   int i_inicio, k_inicio;
 
   for (i_inicio = 0; i_inicio < 9; i_inicio += 3) 
@@ -116,7 +117,7 @@ int is_valid(Node* n){
           }
       }
   }
-
+  */
 
     return 1;
 }
@@ -129,6 +130,7 @@ List* get_adj_nodes(Node* n){
     {
       for(int k = 0 ; k < 9 ; k++)//y columnas
       {
+        /*
         if(n->sudo[i][k] == 0) //si está vacio, puedo ingresar dato
         {
           for(int j = 1 ; j <= 9 ; j++) //y aqui veo que numero agregar
@@ -144,6 +146,18 @@ List* get_adj_nodes(Node* n){
               free(new); //si no, libero la copia
             }
           }
+        }*/
+         //no habia leido bien el README, no habia entendido que solo devo retornar nodos, 
+         //pero sin usar el is_valid, tampoco me di cuenta que no taba completo hasta leer la 2 u_u
+         if(n->sudo[i][k] == 0) //posicion vacía
+         {
+            //Ahora para la casilla vacia creamos los 9 nodos 
+            for(int nodo = 0 ; nodo < 9 ; nodo++)
+            {
+              Node* new = copy(n); //copiamos el nuevo nodo
+              new->sudo[i][k] = nodo; //y al nuevo nodo, le asignamos el numero correspondiente
+              pushBack(list, new); //y solo agregamos
+            }
 
         }
       }
