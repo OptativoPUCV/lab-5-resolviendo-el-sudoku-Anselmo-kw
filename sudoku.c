@@ -51,22 +51,18 @@ int is_valid(Node* n){
   //No se repitan números en las filas
   for(int i = 0 ; i < 9 ; i++)
   { 
-    int total = 0;
-    int cont = 0;
+    int numeros[10] = {0};
     for(int k = 0 ; k < 9 ; k++)
     {
       if(n->sudo[i][k] != 0)
       {
-        total += n->sudo[i][k];
-        cont ++;
+        int actual = n->sudo[i][k];
+        if(numeros[actual]) return 0; //si ya aparecio, significa que se repite
+        numeros[actual] = 1; //si no, lo marcamos en para que en caso de aparecer retornar 0;
       }
     }
-
-    if(total/cont != 0) return 0;
   }
   
-
-
     return 1;
 }
 
