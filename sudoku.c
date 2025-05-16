@@ -201,6 +201,7 @@ Node* DFS(Node* initial, int* cont){
     //e) Libere la memoria usada por el nodo.
     free(nodo);
     
+    return;
   }
 
   return NULL;
