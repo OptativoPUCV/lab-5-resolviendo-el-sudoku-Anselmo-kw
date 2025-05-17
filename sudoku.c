@@ -167,7 +167,7 @@ int is_final(Node* n){
     }
   }
   return 1;
- 
+
 }
 
 Node* DFS(Node* initial, int* cont){
@@ -177,7 +177,7 @@ Node* DFS(Node* initial, int* cont){
   push(S, initial);
 
   //2. Mientras el stack S no se encuentre vacío:
-  while(top(S) != 0) //no tengo size, asique supongo que devo ocupar top()
+  while(top(S) != NULL) //no tengo size, asique supongo que devo ocupar top()
   {
     (*cont)++;
     //a) Saque y elimine el primer nodo de S.
@@ -202,10 +202,9 @@ Node* DFS(Node* initial, int* cont){
     }
 
     //e) Libere la memoria usada por el nodo.
-    //free(nodo);
+    free(nodo);
     }
   }
-
 
   return NULL;
 }
