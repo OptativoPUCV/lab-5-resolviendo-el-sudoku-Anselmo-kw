@@ -185,7 +185,10 @@ Node* DFS(Node* initial, int* cont){
     pop(S);
 
     //b) Verifique si corresponde a un estado final, si es así retorne el nodo.
-    if(is_final(nodo)) return nodo;
+    if(is_final(nodo)) {
+      return nodo;
+    }
+    else{
 
     //c) Obtenga la lista de nodos adyacentes al nodo.
     List *listaAdj = get_adj_nodes(nodo);
@@ -200,8 +203,7 @@ Node* DFS(Node* initial, int* cont){
 
     //e) Libere la memoria usada por el nodo.
     free(nodo);
-    
-    return;
+    }
   }
 
   return NULL;
