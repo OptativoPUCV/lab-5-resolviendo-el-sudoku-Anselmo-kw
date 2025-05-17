@@ -202,7 +202,8 @@ Node* DFS(Node* initial, int* cont){
     }
 
     //e) Libere la memoria usada por el nodo.
-    //free(nodo);
+    free(nodo);
+    free(listaAdj);
     }
   }
 
