@@ -135,7 +135,7 @@ List* get_adj_nodes(Node* n){
          if(n->sudo[i][k] == 0) //posicion vacía
          {
             //Ahora para la casilla vacia creamos los 9 nodos 
-            for(int num = 1 ; num < 9 ; num++) //parte desde 1, no 0 xd
+            for(int num = 1 ; num <= 9 ; num++) //parte desde 1, no 0 xd//hasta el 9
             {
               Node* newNodo = copy(n); //copiamos el nuevo nodo
               newNodo->sudo[i][k] = num; //y al nuevo nodo, le asignamos el numero correspondiente
@@ -203,7 +203,6 @@ Node* DFS(Node* initial, int* cont){
 
     //e) Libere la memoria usada por el nodo.
     free(nodo);
-    free(listaAdj);
     }
   }
 
